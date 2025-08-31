@@ -7,7 +7,7 @@ Already filled:
 
 ## Replace once
 - Set your GitHub Pages URL:
-  - In all files, change `https://<your-gh-username>.github.io/phoenix-homes-stack` to your real URL.
+  - In all files, change `https://phoenixhomes.github.io/phoenix-homes-stack/` to your real URL.
 - Set the next tier link:
   - Replace `{{BITBUCKET_URL}}` with your Bitbucket Pages URL after it’s live.
 
