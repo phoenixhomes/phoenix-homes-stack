@@ -1,109 +1,185 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Phoenix AZ Real Estate & Nearby Markets | Phoenix Homes (GitHub Node)</title>
-  <meta name="description" content="Market pages for Phoenix, Tempe, Paradise Valley, Gilbert, Chandler, and Cave Creek—prices, trends, listings, and local guidance.">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Phoenix AZ Real Estate & Nearby Markets | Phoenix Homes</title>
+  <meta name="description" content="Market pages for Phoenix, Tempe, Paradise Valley, Gilbert, Chandler, and Cave Creek—prices, trends, listings, and local guidance." />
   <link rel="canonical" href="https://phoenixhomes.github.io/phoenix-homes-stack/">
-  <meta name="robots" content="index,follow">
+  <meta name="robots" content="index,follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Phoenix Real Estate Resources — Phoenix Homes" />
+  <meta property="og:description" content="High-intent links to market pages, tools, and contact info." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://phoenixhomes.github.io/phoenix-homes-stack/" />
+  <meta property="og:image" content="https://www.phoenixhomes.com/wp-content/uploads/2025/03/Phoenix-Homes.png" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="https://www.phoenixhomes.com/wp-content/uploads/2025/03/Phoenix-Homes.png">
+
   <style>
-body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.55;margin:0;color:#111}
-.wrap{max-width:960px;margin:0 auto;padding:28px}
-header,footer{border-bottom:1px solid #eee}
-footer{border-top:1px solid #eee;border-bottom:none;margin-top:36px;padding-top:18px}
-nav a{margin-right:14px}
-.cta{display:inline-block;padding:10px 14px;border:1px solid #111;border-radius:8px;text-decoration:none}
-.grid{display:grid;gap:16px}
-@media(min-width:720px){.grid{grid-template-columns:1fr 1fr}}
-.box{border:1px solid #eee;border-radius:10px;padding:16px}
-small, address{color:#555}
-</style>
+    :root{
+      --bg:#0b0c0f; --card:#12141a; --muted:#9ca3af; --text:#e5e7eb; --accent:#fff; --ring:#2a2f3a; --link:#d1d5db;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;background:var(--bg);color:var(--text);font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial}
+    a{color:var(--link);text-decoration:none}
+    a:hover{opacity:.9;text-decoration:underline}
+    .container{max-width:1080px;margin:auto;padding:24px}
+
+    header{position:sticky;top:0;z-index:20;background:rgba(11,12,15,.95);backdrop-filter:saturate(140%) blur(6px);border-bottom:1px solid var(--ring)}
+    .nav{display:flex;align-items:center;gap:16px;justify-content:space-between}
+    .brand img{height:36px;width:auto}
+    .menu a{margin-left:14px}
+
+    .hero{padding:48px 0 8px}
+    .hero h1{margin:.2rem 0 0;font-size:32px}
+    .lead{color:var(--muted);max-width:68ch;margin-top:8px}
+
+    .section-title{margin:34px 0 6px;font-size:20px}
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px;margin-top:24px}
+    .card{grid-column:span 12;background:var(--card);border:1px solid var(--ring);border-radius:16px;padding:18px;display:flex;gap:14px;align-items:flex-start;transition:transform .2s ease, border-color .2s ease}
+    .card:hover{transform:translateY(-2px);border-color:#3a4152}
+    .card h3{margin:0 0 6px;font-size:16px}
+    .card p{margin:0;color:var(--muted);font-size:14px}
+    .icon{width:22px;height:22px;flex:0 0 22px;opacity:.9}
+    .card a.cta{margin-left:auto;white-space:nowrap;border:1px solid var(--ring);border-radius:10px;padding:6px 10px;background:#0f1117}
+
+    @media (min-width:720px){ .card{grid-column:span 6} }
+
+    .two-col{display:grid;grid-template-columns:1fr;gap:16px}
+    @media (min-width:720px){ .two-col{grid-template-columns:2fr 1fr} }
+
+    .callout{border-left:3px solid var(--accent);padding:12px 14px;background:#0e1116;border:1px solid var(--ring);border-radius:10px}
+    .list-plain{padding-left:0;margin:10px 0 0}
+    .list-plain li{list-style:none;margin:8px 0}
+    .stack-flow{display:flex;gap:10px;flex-wrap:wrap}
+    .chip{border:1px dashed var(--ring);border-radius:999px;padding:6px 10px;background:var(--card);font-size:12px}
+
+    footer{margin-top:36px;border-top:1px solid var(--ring);padding:18px 0;color:var(--muted);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+    .map{border:0;width:100%;height:260px;border-radius:12px;outline:1px solid var(--ring)}
+  </style>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const y = document.getElementById('year'); if (y) y.textContent = new Date().getFullYear();
+    });
+  </script>
+
   <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "Phoenix Homes",
-  "url": "https://phoenixhomes.github.io/phoenix-homes-stack/",
-  "image": "https://www.phoenixhomes.com/favicon-512x512.png",
-  "telephone": "+14807314663",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "10601 Hayden Rd",
-    "addressLocality": "Scottsdale",
-    "addressRegion": "AZ",
-    "postalCode": "85260",
-    "addressCountry": "US"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": 33.5826,
-    "longitude": -111.8975
-  },
-  "openingHours": "Mo-Fr 09:00-19:00",
-  "areaServed": ["Phoenix","Scottsdale","Tempe","Paradise Valley","Gilbert","Chandler","Cave Creek","Mesa"]
-}
-</script>
+  {
+    "@context":"https://schema.org",
+    "@type":"LocalBusiness",
+    "name":"Phoenix Homes",
+    "url":"https://www.phoenixhomes.com/",
+    "image":"https://www.phoenixhomes.com/wp-content/uploads/2025/03/Phoenix-Homes.png",
+    "telephone":"+1-480-731-4663",
+    "address":{"@type":"PostalAddress","streetAddress":"10601 Hayden Rd","addressLocality":"Scottsdale","addressRegion":"AZ","postalCode":"85260","addressCountry":"US"}
+  }
+  </script>
 </head>
 <body>
-  <header class="wrap">
-  <nav>
-    <a href="https://phoenixhomes.github.io/phoenix-homes-stack/">Home</a>
-    <a href="https://phoenixhomes.github.io/phoenix-homes-stack/about.html">About</a>
-    <a href="https://phoenixhomes.github.io/phoenix-homes-stack/contact.html">Contact</a>
-  </nav>
-</header>
-  <main class="wrap">
-    <h1>Phoenix Real Estate Resources</h1>
-    <p>Curated links to high-intent pages from PhoenixHomes.com. This GitHub node is part of a multi-cloud stack that funnels authority to priority markets.</p>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="https://www.phoenixhomes.com/" target="_blank" rel="noopener">
+        <img src="https://www.phoenixhomes.com/wp-content/uploads/2025/03/Phoenix-Homes.png" alt="Phoenix Homes logo" />
+      </a>
+      <nav class="menu" aria-label="Primary">
+        <a href="https://phoenixhomes.github.io/phoenix-homes-stack/">Home</a>
+        <a href="https://phoenixhomes.github.io/phoenix-homes-stack/about.html">About</a>
+        <a href="https://phoenixhomes.github.io/phoenix-homes-stack/contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-    <section class="box">
-      <h2>High-Intent Markets</h2>
-      <ul>
-        <li><a href="https://www.phoenixhomes.com/real-estate/phoenix-az/?utm_source=github&utm_medium=cloud_stack&utm_campaign=priority">Phoenix AZ real estate</a> — market data, neighborhoods, and active listings in the city core.</li>
-        <li><a href="https://www.phoenixhomes.com/real-estate/tempe-az/?utm_source=github&utm_medium=cloud_stack&utm_campaign=priority">Tempe homes for sale</a> — close to ASU, condos & single-family options with quick commute routes.</li>
-        <li><a href="https://www.phoenixhomes.com/real-estate/paradise-valley-az/?utm_source=github&utm_medium=cloud_stack&utm_campaign=priority">Paradise Valley luxury homes</a> — inventory trends, price bands, and PV micro-markets.</li>
-        <li><a href="https://www.phoenixhomes.com/real-estate/gilbert-az/?utm_source=github&utm_medium=cloud_stack&utm_campaign=priority">Gilbert AZ real estate</a> — family-friendly communities, schools, and HOA considerations.</li>
-        <li><a href="https://www.phoenixhomes.com/real-estate/chandler-az/?utm_source=github&utm_medium=cloud_stack&utm_campaign=priority">Chandler housing market</a> — price movement, tech-corridor neighborhoods, and comps.</li>
-        <li><a href="https://www.phoenixhomes.com/real-estate/cave-creek-az/?utm_source=github&utm_medium=cloud_stack&utm_campaign=priority">Cave Creek homes for sale</a> — desert acreage, trail access, and septic/utility notes.</li>
-      </ul>
-      <p>Looking for a trusted <strong>Scottsdale real estate agency</strong>? Visit <a href="https://www.phoenixhomes.com?utm_source=github&utm_medium=cloud_stack&utm_campaign=brand_to_money">Phoenix Homes</a> for expert guidance.</p>
+  <main class="container">
+    <section class="hero">
+      <h1>Phoenix Real Estate Resources</h1>
+      <p class="lead">Curated links to high-intent pages from PhoenixHomes.com. Explore nearby markets, buyer tools, and housing trends.</p>
     </section>
 
-    <section class="box" style="margin-top:18px">
-      <h2>Popular Tasks</h2>
-      <ul>
-        <li><a href="https://www.phoenixhomes.com/search-homes/?utm_source=github&utm_medium=cloud_stack&utm_campaign=site_links">Search homes</a> across the Phoenix metro.</li>
-        <li>Need a value estimate? Try the <a href="https://www.phoenixhomes.com/market-value/?utm_source=github&utm_medium=cloud_stack&utm_campaign=site_links">home value tool</a>.</li>
-        <li>Buying for the first time? Read <a href="https://www.phoenixhomes.com/first-time-arizona-home-buyer-programs/?utm_source=github&utm_medium=cloud_stack&utm_campaign=site_links">first-time buyer programs</a>.</li>
-        <li>Check the latest <a href="https://www.phoenixhomes.com/july-2025-phoenix-housing-market-report/?utm_source=github&utm_medium=cloud_stack&utm_campaign=site_links">Phoenix housing report</a>.</li>
-      </ul>
-    </section>
+    <h2 class="section-title">High-Intent Markets</h2>
+    <div class="grid" role="list">
+      <!-- Phoenix -->
+      <article class="card">
+        <h3><a href="https://www.phoenixhomes.com/real-estate/phoenix-az/" target="_blank">Phoenix AZ real estate</a></h3>
+        <p>Market data, neighborhoods, and active listings in the city core.</p>
+        <a class="cta" href="https://www.phoenixhomes.com/real-estate/phoenix-az/" target="_blank">Open →</a>
+      </article>
 
-    <section class="box" style="margin-top:18px">
-      <h2>Contact Phoenix Homes</h2>
-      <address>
-        Phoenix Homes<br>
-        10601 Hayden Rd<br>
-        Scottsdale, AZ 85260<br>
-        Phone: <a href="tel:+14807314663">(480) 731-4663</a><br>
-        Email: <a href="mailto:bryan@phoenixhomes.com">bryan@phoenixhomes.com</a>
-      </address>
-      <div style="margin-top:10px">
-        <iframe
-          src="https://www.google.com/maps?q=10601+Hayden+Rd+Scottsdale+AZ+85260&output=embed"
-          width="100%" height="260" style="border:0" loading="lazy"></iframe>
+      <article class="card">
+        <h3><a href="https://www.phoenixhomes.com/real-estate/tempe-az/" target="_blank">Tempe homes for sale</a></h3>
+        <p>Close to ASU, condos &amp; single-family options with quick commute routes.</p>
+        <a class="cta" href="https://www.phoenixhomes.com/real-estate/tempe-az/" target="_blank">Open →</a>
+      </article>
+
+      <article class="card">
+        <h3><a href="https://www.phoenixhomes.com/real-estate/paradise-valley-az/" target="_blank">Paradise Valley luxury homes</a></h3>
+        <p>Inventory trends, price bands, and PV micro-markets.</p>
+        <a class="cta" href="https://www.phoenixhomes.com/real-estate/paradise-valley-az/" target="_blank">Open →</a>
+      </article>
+
+      <article class="card">
+        <h3><a href="https://www.phoenixhomes.com/real-estate/gilbert-az/" target="_blank">Gilbert AZ real estate</a></h3>
+        <p>Family-friendly communities, schools, and HOA considerations.</p>
+        <a class="cta" href="https://www.phoenixhomes.com/real-estate/gilbert-az/" target="_blank">Open →</a>
+      </article>
+
+      <article class="card">
+        <h3><a href="https://www.phoenixhomes.com/real-estate/chandler-az/" target="_blank">Chandler housing market</a></h3>
+        <p>Price movement, tech-corridor neighborhoods, and comps.</p>
+        <a class="cta" href="https://www.phoenixhomes.com/real-estate/chandler-az/" target="_blank">Open →</a>
+      </article>
+
+      <article class="card">
+        <h3><a href="https://www.phoenixhomes.com/real-estate/cave-creek-az/" target="_blank">Cave Creek homes for sale</a></h3>
+        <p>Desert acreage, trail access, and septic/utility notes.</p>
+        <a class="cta" href="https://www.phoenixhomes.com/real-estate/cave-creek-az/" target="_blank">Open →</a>
+      </article>
+    </div>
+
+    <h2 class="section-title">Popular Tasks</h2>
+    <div class="two-col">
+      <div class="callout">
+        <ul class="list-plain">
+          <li>• <a href="https://www.phoenixhomes.com/search-homes/" target="_blank">Search homes across the Phoenix metro</a></li>
+          <li>• Get a <a href="https://www.phoenixhomes.com/market-value/" target="_blank">home value estimate</a></li>
+          <li>• <a href="https://www.phoenixhomes.com/july-2025-phoenix-housing-market-report/" target="_blank">Phoenix housing report</a></li>
+          <li>• <a href="https://www.phoenixhomes.com/first-time-arizona-home-buyer-programs/" target="_blank">First-time buyer programs</a></li>
+        </ul>
       </div>
-    </section>
+      <aside>
+        <div class="callout">
+          <strong>Contact Phoenix Homes</strong><br>
+          10601 Hayden Rd, Scottsdale, AZ 85260<br>
+          <span class="muted">Phone:</span> <a href="tel:+14807314663">+1 (480) 731-4663</a><br>
+          <span class="muted">Email:</span> <a href="mailto:bryan@phoenixhomes.com">bryan@phoenixhomes.com</a>
+        </div>
+      </aside>
+    </div>
 
-    <section class="box" style="margin-top:18px">
-      <h2>Tier Links (Stack Flow)</h2>
-      <ul>
-        <li>Next node → <a href="{BITBUCKET_URL}">Bitbucket</a></li>
-        <li>Money site → <a href="https://www.phoenixhomes.com?utm_source=github&utm_medium=cloud_stack&utm_campaign=tier2">PhoenixHomes.com</a></li>
-      </ul>
-    </section>
+    <h2 class="section-title">Find Us</h2>
+    <div class="grid">
+      <div class="card" style="grid-column:span 12;">
+        <iframe class="map"
+          src="https://www.google.com/maps?q=10601+Hayden+Rd+Scottsdale+AZ+85260&output=embed"
+          loading="lazy" referrerpolicy="no-referrer-when-downgrade" aria-label="Map of Phoenix Homes office">
+        </iframe>
+      </div>
+    </div>
+
+    <h2 class="section-title">Links</h2>
+    <div class="stack-flow">
+      <span class="chip">This page</span>
+      <a class="chip" href="https://bitbucket.org/your-next-node" target="_blank">Bitbucket</a>
+      <a class="chip" href="https://www.phoenixhomes.com/" target="_blank">PhoenixHomes.com</a>
+    </div>
   </main>
-  <footer class="wrap"><small>© 2025 Phoenix Homes · <a href="https://www.phoenixhomes.com?utm_source=github&utm_medium=cloud_stack&utm_campaign=footer">PhoenixHomes.com</a></small></footer>
+
+  <footer class="container">
+    <span>© <span id="year"></span> Phoenix Homes</span>
+    <img src="https://www.phoenixhomes.com/wp-content/uploads/2025/03/Phoenix-Homes.png" alt="Phoenix Homes white logo" style="height:24px;width:auto;opacity:.8" />
+  </footer>
 </body>
 </html>
