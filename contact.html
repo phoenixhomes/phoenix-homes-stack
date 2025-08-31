@@ -1,26 +1,106 @@
 <!doctype html>
-<meta charset="utf-8">
-<title>Contact Phoenix Homes</title>
-<link rel="canonical" href="https://phoenixhomes.github.io/phoenix-homes-stack/contact.html">
-<header class="wrap">
-  <nav>
-    <a href="https://phoenixhomes.github.io/phoenix-homes-stack/">Home</a>
-    <a href="https://phoenixhomes.github.io/phoenix-homes-stack/about.html">About</a>
-    <a href="https://phoenixhomes.github.io/phoenix-homes-stack/contact.html">Contact</a>
-  </nav>
-</header>
-<main class="wrap">
-  <h1>Contact Phoenix Homes</h1>
-  <address>
-    Phoenix Homes<br>
-    10601 Hayden Rd<br>
-    Scottsdale, AZ 85260<br>
-    Phone: <a href="tel:+14807314663">(480) 731-4663</a><br>
-    Email: <a href="mailto:bryan@phoenixhomes.com">bryan@phoenixhomes.com</a>
-  </address>
-  <div style="margin-top:10px">
-    <iframe src="https://www.google.com/maps?q=10601+Hayden+Rd+Scottsdale+AZ+85260&output=embed" width="100%" height="260" style="border:0" loading="lazy"></iframe>
-  </div>
-  <p><a class="cta" href="https://www.phoenixhomes.com?utm_source=github&utm_medium=cloud_stack&utm_campaign=contact">Visit Main Site</a></p>
-</main>
-<footer class="wrap"><small>© 2025 Phoenix Homes · <a href="https://www.phoenixhomes.com?utm_source=github&utm_medium=cloud_stack&utm_campaign=footer">PhoenixHomes.com</a></small></footer>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Contact Phoenix Homes</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Get in touch with Phoenix Homes — phone, email, and office address in Scottsdale, AZ." />
+  <link rel="canonical" href="https://phoenixhomes.github.io/phoenix-homes-stack/contact.html" />
+  <meta name="robots" content="index,follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Contact Phoenix Homes" />
+  <meta property="og:description" content="Reach Phoenix Homes in Scottsdale for showings, listing consults, and real estate guidance." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://phoenixhomes.github.io/phoenix-homes-stack/contact.html" />
+  <meta property="og:image" content="https://www.phoenixhomes.com/wp-content/uploads/2025/03/Phoenix-Homes.png" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="https://www.phoenixhomes.com/wp-content/uploads/2025/03/Phoenix-Homes.png" />
+
+  <style>
+    :root{
+      --bg:#0b0c0f; --card:#12141a; --muted:#9ca3af; --text:#e5e7eb; --accent:#fff; --ring:#2a2f3a; --link:#d1d5db;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;background:var(--bg);color:var(--text);font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial}
+    a{color:var(--link);text-decoration:none}
+    a:hover{opacity:.9;text-decoration:underline}
+    .container{max-width:1080px;margin:auto;padding:24px}
+
+    header{position:sticky;top:0;z-index:20;background:rgba(11,12,15,.95);backdrop-filter:saturate(140%) blur(6px);border-bottom:1px solid var(--ring)}
+    .nav{display:flex;align-items:center;gap:16px;justify-content:space-between}
+    .brand img{height:36px;width:auto}
+    .menu a{margin-left:14px}
+
+    .hero{padding:48px 0 8px}
+    .hero h1{margin:.2rem 0 0;font-size:32px}
+    .lead{color:var(--muted);max-width:70ch;margin-top:8px}
+
+    .card{background:var(--card);border:1px solid var(--ring);border-radius:16px;padding:20px;margin-top:24px}
+    .section-title{margin:28px 0 12px;font-size:20px}
+    .map{border:0;width:100%;height:320px;border-radius:12px;outline:1px solid var(--ring)}
+
+    .btn{display:inline-block;border:1px solid var(--ring);background:#0f1117;border-radius:12px;padding:10px 14px;margin-top:16px}
+    .muted{color:var(--muted)}
+    footer{margin-top:36px;border-top:1px solid var(--ring);padding:18px 0;color:var(--muted);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+  </style>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const y = document.getElementById('year'); if (y) y.textContent = new Date().getFullYear();
+    });
+  </script>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="https://www.phoenixhomes.com/" target="_blank" rel="noopener">
+        <img src="https://www.phoenixhomes.com/wp-content/uploads/2025/03/Phoenix-Homes.png" alt="Phoenix Homes logo" />
+      </a>
+      <nav class="menu" aria-label="Primary">
+        <a href="https://phoenixhomes.github.io/phoenix-homes-stack/">Home</a>
+        <a href="https://phoenixhomes.github.io/phoenix-homes-stack/about.html">About</a>
+        <a href="https://phoenixhomes.github.io/phoenix-homes-stack/contact.html" aria-current="page">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h1>Contact Phoenix Homes</h1>
+      <p class="lead">Reach us for showings, listing consultations, or real estate questions across the Phoenix metro.</p>
+    </section>
+
+    <section class="card">
+      <h2 class="section-title">Office</h2>
+      <address>
+        Phoenix Homes<br>
+        10601 Hayden Rd<br>
+        Scottsdale, AZ 85260<br>
+        <span class="muted">Phone:</span> <a href="tel:+14807314663">(480) 731-4663</a><br>
+        <span class="muted">Email:</span> <a href="mailto:bryan@phoenixhomes.com">bryan@phoenixhomes.com</a>
+      </address>
+    </section>
+
+    <section class="card">
+      <h2 class="section-title">Find us</h2>
+      <iframe class="map"
+        src="https://www.google.com/maps?q=10601+Hayden+Rd+Scottsdale+AZ+85260&output=embed"
+        loading="lazy" referrerpolicy="no-referrer-when-downgrade" aria-label="Map of Phoenix Homes office">
+      </iframe>
+    </section>
+
+    <section class="card">
+      <h2 class="section-title">More</h2>
+      <p>Explore listings, guides, and resources on our main site.</p>
+      <p><a class="btn" href="https://www.phoenixhomes.com/" target="_blank" rel="noopener">Visit PhoenixHomes.com →</a></p>
+    </section>
+  </main>
+
+  <footer class="container">
+    <span>© <span id="year"></span> Phoenix Homes</span>
+    <img src="https://www.phoenixhomes.com/wp-content/uploads/2025/03/Phoenix-Homes.png" alt="Phoenix Homes white logo" style="height:24px;width:auto;opacity:.8" />
+  </footer>
+</body>
+</html>
